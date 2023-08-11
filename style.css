@@ -656,7 +656,7 @@ iframe {
 /* #fef1d8e8 ---> pretty light yellow */
 @media screen and (max-width: 481px) {
     .intro {
-        height: 15vh;
+        height: 14vh;
         margin-top: 6rem;
         margin-bottom: 0;
     }
@@ -708,7 +708,7 @@ iframe {
     .container {
         position: relative;
         width: 100vw;
-        height: 150vh;
+        height: 140vh;
         margin-left: 0;
         display: flex;
         z-index: 100;
@@ -731,7 +731,7 @@ iframe {
         background: #F1F1F1;
         background: fff;
         width: 90vw;
-        height: 57%;
+        height: 52%;
         margin-left: 5%;
         display: flex;
         justify-content: center;
@@ -741,7 +741,7 @@ iframe {
 
     .contactForm h2 {
         font-size: 1rem;
-        margin:1rem 0;
+        margin:0 0 1rem 0;
     }
     
     .contactInfo ul {
