@@ -1,0 +1,963 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background: #F1F1F1;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #00000030;
+    backdrop-filter: blur(5px);
+    padding: 1rem 9%;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(7, 6, 21, 0.25) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+header .logo img {
+    width: 3.9rem;
+    border-radius: 50%;
+}
+
+header .navbar a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 2rem;
+    color: #484848;
+    position: relative;
+}
+
+header .navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 0.2rem;
+    left: 0;
+    bottom: 0;
+    border-radius: 1rem;
+    background: #009DB8;
+    transition: 0.4s;
+}
+
+header .navbar a:hover::after {
+    width: 100%;
+}
+
+header .navbar a:hover {
+    color: #009DB8;
+}
+
+#menu-bar {
+    font-size: 3rem;
+    cursor: pointer;
+    color: #666;
+    border: .1rem solid #666;
+    border-radius: .3rem;
+    padding: .5rem 1.5rem;
+    display: none;
+}
+
+@media screen and (min-width:769)and (max-width:1023px) {
+    html {
+        /* font-size: 60%; */
+    }
+
+    #menu-bar {
+        padding: 2rem;
+
+    }
+
+    header .logo img {
+        margin-left: 3rem;
+    }
+
+    header .navbar a {
+        position: absolute;
+        font-size: 1rem;
+        margin-left: 20px;
+
+    }
+}
+
+@media(max-width:768px) {
+    #menu-bar {
+        display: initial;
+    }
+
+    header .logo img {
+        margin-left: 3rem;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgb(15, 16, 27);
+        border-top: .1rem solid rgba(7, 6, 21, 0.25);
+        display: block;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0)
+    }
+
+    header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    header {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #232323;
+        padding: 1rem 9%;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(7, 6, 21, 0.25) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    header .navbar a {
+        margin: 1.5rem;
+        padding: 1.5rem;
+        display: block;
+        border: .2rem solid rgba(7, 6, 21, 0.25);
+        border-left: .5rem solid #009DB8;
+        background: #17182A;
+    }
+}
+
+
+.intro {
+    height: 42vh;
+    background-color: #e7e5e4;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5rem;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.intro-main {
+    position: absolute;
+    top: 18rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.intro h1 {
+    font-size: 5rem;
+    font-weight: 300;
+    color: #232323;
+    letter-spacing: .25em;
+    text-shadow:
+        1px -1px 0 #767676,
+        -1px 2px 1px #737272,
+        -2px 4px 1px #767474,
+        -3px 6px 1px #787777,
+        -4px 8px 1px #7b7a7a,
+        -5px 10px 1px #7f7d7d,
+        -6px 12px 1px #828181;
+}
+
+.intro p {
+    color: #232323;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+
+
+
+/* Socials Animation */
+
+.wrapper .button {
+    display: inline-block;
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: 0 0.4px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(90, 85, 85, 0.1);
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .button:hover {
+    width: 9rem;
+}
+
+.wrapper .button .icon {
+    display: inline-block;
+    height: 3.7rem;
+    width: 3.7rem;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 3.7rem;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .button:nth-child(1):hover .icon {
+    background-image: linear-gradient(rgb(254, 218, 117), rgb(250, 126, 30), rgb(214, 41, 118), rgb(150, 47, 191), rgb(79, 91, 213));
+}
+
+.wrapper .button:nth-child(2):hover .icon {
+    background: #1DA1F2;
+}
+
+.wrapper .button:nth-child(3):hover .icon {
+    background: #0072b1;
+}
+
+.wrapper .button .icon i {
+    color: #000;
+    font-size: 1.5rem;
+    line-height: 3.7rem;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .button:hover .icon i {
+    color: #fff;
+}
+
+.wrapper .button span {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1rem;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .button:nth-child(1) span {
+    color: #f23a6e;
+    font-size: 0.9rem;
+}
+
+
+.wrapper .button:nth-child(2) span {
+    color: #1DA1F2;
+}
+
+.wrapper .button:nth-child(3) span {
+    color: #0072b1;
+}
+
+/* Main Form */
+
+.container {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    margin-left: 10rem;
+    margin-bottom: 10rem;
+    display: flex;
+    z-index: 100;
+    background: #F1F1F1;
+    padding-bottom: 5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+}
+
+.contactInfo {
+    position: absolute;
+    top: 10vh;
+    width: 25vw;
+    background: #232323;
+    height: calc(100% - 20vh);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -5rem;
+    border-radius: 8px;
+    box-shadow: rgba(24, 24, 24, 0.25) 0px 14px 28px, rgba(76, 76, 76, 0.22) 0px 10px 10px;
+
+}
+
+.contactInfo h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    justify-content: center;
+    margin-left:2rem;
+
+}
+
+.contactInfo ul {
+    position: relative;
+    margin: 0rem 2rem;
+    padding-left: 0;
+
+}
+
+.contactInfo ul li {
+    position: relative;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    align-items: flex-start;
+    cursor: pointer;
+    margin-top: 3rem;
+}
+
+.contactInfo ul li span:nth-child(1) img {
+    max-width: 2rem;
+    width: 2rem;
+    max-height: 2rem;
+    filter: invert(1);
+
+}
+
+.contactInfo ul li span:nth-child(2) {
+
+    color: #F1F1F1;
+    margin-left: 2rem;
+    font-weight: 300;
+}
+.contactInfo ul li span:nth-child(2) a{
+    text-decoration: none;
+    color: #F1F1F1;
+}
+
+.contactForm {
+    background: #F1F1F1;
+    position: absolute;
+    background: fff;
+    width: calc(100% - 20vw);
+    height: 100%;
+    margin-left: 20vw;
+
+}
+
+.contactForm h2 {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 3rem 0 2rem 3rem;
+}
+
+.contactForm .formBox {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 3rem;
+    margin-right: 3rem;
+
+
+}
+
+.contactForm .formBox .inputBox {
+    position: relative;
+    margin-bottom: 35px;
+    box-sizing: border-box;
+
+
+
+}
+
+.contactForm .formBox .inputBox.w50 {
+    width: 48%;
+
+}
+
+.contactForm .formBox .inputBox.w100 {
+    width: 100%;
+}
+
+.contactForm .formBox .inputBox input,
+.contactForm .formBox .inputBox textArea {
+    width: 100%;
+    resize: none;
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #333;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+.contactForm .formBox .inputBox textArea {
+    height: 8rem;
+}
+
+
+/* Send Button */
+#send-btn {
+    display: flex;
+    width: 10rem;
+    height: 4rem;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 20px;
+    color: #fff;
+    background-color: #232323;
+    border: none;
+    border-radius: 10px;
+    transition-property: color, background;
+    transition: all 0s ease-out;
+    box-shadow: 5px 5px 4px 0px #000000,
+        5px 0px 4px #000000;
+}
+
+#btnText {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+#send-btn:hover {
+    background-color: #fff;
+    color: #464545;
+    transition: all 0.10s;
+    box-shadow: -5px -5px 5px #FAFBFF inset,
+        5px 5px 5px #161B1D3B;
+
+}
+
+#send-btn.sent {
+    background-color: #fff;
+    color: #464545;
+    /* transition: all 0.10s; */
+    box-shadow: -5px -5px 5px #FAFBFF inset,
+        5px 5px 5px #161B1D3B;
+}
+
+#send-btn.clicked {
+    box-shadow: -5px -5px 5px 0 #161B1D 20%,
+        5px 5px 5px 0 #FAFBFF 70%;
+
+
+}
+
+#btnText.clicked {
+    all: unset;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+#send-btn.clicked i {
+    position: relative;
+    animation: planefly 1.5s linear;
+}
+
+@keyframes planefly {
+    0% {
+        transform: rotate(10deg);
+        top: 13px;
+        right: 25px;
+    }
+
+    5% {
+        transform: rotate(10deg);
+        top: 13px;
+    }
+
+    20% {
+        transform: rotate(-20deg);
+        top: 13px;
+        right: -130px;
+    }
+
+    50% {
+        transform: rotate(10deg);
+        top: -40px;
+        right: -280px;
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: rotate(60deg);
+        top: -200px;
+        right: -1000px;
+        opacity: 0;
+    }
+}
+
+
+iframe {
+    height: 50vh;
+    width: 100vw;
+    margin-top: 50rem;
+    background-color: #F1F1F1;
+    padding-bottom: 5rem;
+
+}
+
+::-webkit-scrollbar{
+    display: none;
+    width: 0;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    header .navbar a {
+        font-size: 1rem;
+        margin-left: 1.6rem;
+        color: #484848;
+        position: relative;
+    }
+    
+    .intro {
+        height: 35vh;
+        margin-bottom: 0.5rem;
+        margin-top: 6rem;
+    }
+    
+    .intro-main {
+        top: 16rem;
+    }
+    .intro p {
+        font-size: 1.3rem;
+    }
+    
+    .intro h1 {
+        font-size: 4.5rem;
+    }
+
+    .container {
+        width: 90vw;
+        height: 70vh;
+        margin: 0;
+        margin-bottom: 0;
+        margin:0 2%;
+        background: #F1F1F1;
+        padding-bottom: 0;
+        padding: 1.5rem;
+
+    }
+
+    .contactInfo {
+        top: 1.5rem;
+        width: 30vw;
+        height: 90%;
+        margin-left: 0;
+        border-radius: 4px;
+
+    }
+
+    .contactInfo h2 {
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0;
+        margin-left: 2rem;
+
+    }
+
+    .contactInfo ul {
+        margin-left:1.5rem;
+        padding: 0;
+        align-items: cen;
+
+
+    }
+
+    .contactInfo ul li {
+        align-items: center;
+        margin: 0;
+        margin-top: 2.5rem;
+    }
+
+    .contactInfo ul li span:nth-child(1) img {
+        max-width: 2rem;
+        width: 2rem;
+        max-height: 2rem;
+        filter: invert(1);
+
+    }
+
+    .contactInfo ul li span:nth-child(2) {
+        color: #F1F1F1;
+        margin-left: 1rem;
+        font-weight: 300;
+    }
+
+    .contactForm {
+        background: #F1F1F1;
+        width: 60vw;
+        height: 90%;
+        margin-left: 30vw;
+
+    }
+
+    .contactForm h2 {
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 2rem 0 0.5rem 2rem;
+    }
+
+    .contactForm .formBox {
+        
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-left: 0;
+        padding: 1rem;
+        margin-right: 0px;
+
+
+    }
+
+    .contactForm .formBox .inputBox {
+        margin-bottom: 1.5rem;
+        box-sizing: border-box;
+        width: 50%;
+
+
+    }
+
+    .contactForm .formBox .inputBox.w100 {
+        width: 100%;
+    }
+
+    .contactForm .formBox .inputBox input,
+    .contactForm .formBox .inputBox textArea {
+        padding: 0.7rem 0.5rem;
+        width: 100%;
+        border-radius: 0.3rem;
+
+    }
+
+    .contactForm .formBox .inputBox textArea {
+        height: 7rem;
+    }
+
+    #send-btn {
+        width: 8rem;
+        height: 3.8rem;
+        border-radius: 8px;
+        box-shadow: 2px 5px 4px 0px #000000,
+            2px 0px 4px #000000;
+    }
+    
+
+}
+
+/* #fef1d8e8 ---> pretty light yellow */
+@media screen and (max-width: 481px) {
+    .intro {
+        height: 15vh;
+        margin-top: 6rem;
+        margin-bottom: 0;
+    }
+
+    .intro-main {
+        position: absolute;
+        top: 10rem;
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+        font-weight: 500;
+        text-shadow: none;
+    }
+
+    .intro-main p {
+        font-size: 0.7rem;
+    }
+
+    .wrapper .button {
+        height: 3rem;
+        width: 3rem;
+        margin: 0 ;
+        overflow: hidden;
+        background: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: none;
+    }
+    
+    .wrapper .button:hover {
+        width: 3rem;
+    }
+    
+    .wrapper .button .icon {
+        height: 3rem;
+        width: 3rem;
+        line-height: 3rem;
+       
+    }
+    
+    .wrapper .button .icon i {
+        color: #000;
+        font-size: 1.5rem;
+        line-height: 3rem;
+        transition: all 0.3s ease-out;
+    }
+    
+    .container {
+        position: relative;
+        width: 100vw;
+        height: 150vh;
+        margin-left: 0;
+        display: flex;
+        z-index: 100;
+        background: #F1F1F1;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+
+    .contactInfo {
+        top: 95vh;
+        margin-left: 5%;
+        width: 90vw;
+        height: 35%;
+        border-radius: 4px;
+
+    }
+
+    .contactForm {
+        border-radius: 4px;
+        background: #F1F1F1;
+        background: fff;
+        width: 90vw;
+        height: 57%;
+        margin-left: 5%;
+        display: flex;
+        justify-content: center;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    }
+
+    .contactForm h2 {
+        font-size: 1.3rem;
+    }
+    
+    .contactInfo ul {
+        margin: 0rem 2rem;
+        padding-left: 0;
+    
+    }
+
+    .contactForm .formBox {
+        position: absolute;
+        display: flex;
+        top: 4rem;
+        flex-wrap: wrap;
+        margin-left: 5%;
+    }
+
+    .contactForm .formBox .inputBox.w50 {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .contactForm .formBox .inputBox input,
+    .contactForm .formBox .inputBox textArea {
+        width: 100%;
+        padding: 0.7rem 1rem;
+    }
+
+    #send-btn {
+        width: 8rem;
+        height: 3rem;
+        border-radius: 10px;
+    }
+
+    #btnText {
+        font-size: 1.2rem;
+        font-weight: 100;
+    }
+
+    .contactInfo ul li {
+        margin: 0;
+        margin-top: 1rem;
+    }
+
+    .contactInfo ul li span:nth-child(1) img {
+        max-width: 2rem;
+        width: 2rem;
+        max-height: 2rem;
+        filter: invert(1);
+
+    }
+
+    .contactInfo ul li span:nth-child(2) {
+        color: #F1F1F1;
+        margin-left: 2rem;
+        font-weight: 300;
+    }
+
+}
+
+@media screen and (min-width: 482px) and (max-width: 768px) {
+    .intro h1 {
+        font-size: 3.5rem;
+    }
+    .intro {
+        height: 22vh;
+        margin-bottom: 0;
+    }
+
+    .intro-main {
+        top: 13.5rem;
+    }
+
+    .intro-main p {
+        font-size: 1rem;
+    }
+
+    .wrapper .button {
+        height: 3rem;
+        width: 3rem;
+        margin: 0 ;
+        overflow: hidden;
+        background: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: none;
+    }
+    
+    .wrapper .button:hover {
+        width: 3rem;
+    }
+    
+    .wrapper .button .icon {
+        height: 3rem;
+        width: 3rem;
+        line-height: 3rem;
+       
+    }
+    
+    .wrapper .button .icon i {
+        color: #000;
+        font-size: 1.5rem;
+        line-height: 3rem;
+        transition: all 0.3s ease-out;
+    }
+    
+    
+
+    .container {
+        position: relative;
+        width: 100vw;
+        height: 150vh;
+        margin-left: 0;
+        display: flex;
+        z-index: 100;
+        background: #F1F1F1;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+
+    .contactInfo {
+        position: absolute;
+        top: 95vh;
+        margin-left: 5%;
+        width: 90vw;
+        height: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 8px;
+        box-shadow: rgba(24, 24, 24, 0.25) 0px 14px 28px, rgba(76, 76, 76, 0.22) 0px 10px 10px;
+
+    }
+
+    .contactForm {
+        border-radius: 4px;
+        background: #F1F1F1;
+        background: fff;
+        width: 90vw;
+        height: 57%;
+        margin-left: 5%;
+        display: flex;
+        justify-content: center;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    }
+
+    .contactForm h2 {
+        color: #000;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 1rem 0 0 0;
+    }
+
+    .contactForm .formBox {
+        position: absolute;
+        display: flex;
+        top: 4rem;
+        flex-wrap: wrap;
+        margin-left: 5%;
+    }
+
+    .contactForm .formBox .inputBox.w50 {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .contactForm .formBox .inputBox input,
+    .contactForm .formBox .inputBox textArea {
+        width: 100%;
+        padding: 0.7rem 1rem;
+    }
+
+    #send-btn {
+        width: 8rem;
+        height: 3.5rem;
+        border-radius: 10px;
+    }
+
+    #btnText {
+        font-size: 1.2rem;
+        font-weight: 100;
+    }
+
+    iframe {
+        display: none;
+    }
+
+    .contactInfo h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        justify-content: center;
+        margin: 1rem 0 0 2.2rem;
+
+    }
+
+    .contactInfo ul {
+        position: relative;
+
+    }
+
+    .contactInfo ul li {
+        margin: 0;
+        margin-top: 2rem;
+    }
+
+    .contactInfo ul li span:nth-child(1) img {
+        max-width: 2rem;
+        width: 2rem;
+        max-height: 2rem;
+        filter: invert(1);
+
+    }
+
+    .contactInfo ul li span:nth-child(2) {
+        color: #F1F1F1;
+        margin-left: 2rem;
+        font-weight: 300;
+    }
+
+}
